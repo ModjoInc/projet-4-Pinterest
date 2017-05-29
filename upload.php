@@ -1,4 +1,3 @@
-
 <?php
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -49,3 +48,14 @@ if ($uploadOk == 0) {
 }
 
 ?>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+  </body>
+</html>
