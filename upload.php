@@ -48,6 +48,10 @@ if ($uploadOk == 0) {
     }
 }
 
+$fichier = scandir ($uploads[$sorting_order = SCANDIR_SORT_ASCENDING])
+
+print_r($fichier);
+
 ?>
 
 
