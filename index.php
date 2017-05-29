@@ -8,7 +8,7 @@
   <body>
  <h1>PINTEREST-LIKE</h1>
 
-   <form action="upoad.php" method="post" enctype="multipart/form-data">
+   <form action="../upoad.php" method="post" enctype="multipart/form-data">
      <p>upload image</p>
      <p><input type="file" name="fileToUpload" id="fileToUpload"></p>
      <p><input type="submit" value="Upload Image" name="submit"></p>
