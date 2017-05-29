@@ -8,7 +8,7 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        echo "<p>Le fichier est une image - " . $check["mime"] . ".</p>";
+        echo "<p>Le fichier est une image - " . $check["mime"] . " .</p>";
         $uploadOk = 1;
     } else {
         echo "<p>Le fichier n'est pas une image.</p>";
@@ -42,7 +42,7 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "<p>Le fichier ". basename( $_FILES["fileToUpload"]["name"]). "a bien été uploadé.</p>";
+        echo "<p>Le fichier ". basename( $_FILES["fileToUpload"]["name"]). " a bien été uploadé.</p>";
     } else {
         echo "<p>Désolé il y a eu une erreur lors de l'upload de votre fichier.</p>";
     }
