@@ -56,6 +56,6 @@ if ($uploadOk == 0) {
     <title></title>
   </head>
   <body>
-
+   <p><a href="index.php"></a></p>
   </body>
 </html>
