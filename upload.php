@@ -8,42 +8,43 @@ $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
-        echo "Le fichier est une image - " . $check["mime"] . ".";
+        echo "<p>Le fichier est une image - " . $check["mime"] . ".</p>";
         $uploadOk = 1;
     } else {
-        echo "Le fichier n'est pas une image.";
+        echo "<p>Le fichier n'est pas une image.</p>";
         $uploadOk = 0;
     }
 }
 
 // Check if file already exists
 if (file_exists($target_file)) {
-    echo "Désolé, le fichier existe déjà.";
+    echo "<p>Désolé, le fichier existe déjà.</p>";
     $uploadOk = 0;
 }
 
 // Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Désolé, la taille de votre fichier dépasse la limite autorisée.";
+    echo "<p>Désolé, la taille de votre fichier dépasse la limite autorisée.</p>";
     $uploadOk = 0;
 }
 
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" && $imageFileType != "WebP") {
-    echo "Désolé seuls les formats JPG, JPEG, PNG & GIF sont autorisés.";
+    echo "<p>Désolé seuls les formats JPG, JPEG, PNG & GIF sont autorisés.</p>";
     $uploadOk = 0;
 }
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Désolé votre fichier n'a pas pu être uploadé.";
+    echo "<p>Désolé votre fichier n'a pas pu être uploadé.</p>";
+
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"]). "a bien été uploadé.";
+        echo "<p>Le fichier ". basename( $_FILES["fileToUpload"]["name"]). "a bien été uploadé.</p>";
     } else {
-        echo "Désolé il y a eu une erreur lors de l'upload de votre fichier.";
+        echo "<p>Désolé il y a eu une erreur lors de l'upload de votre fichier.</p>";
     }
 }
 
