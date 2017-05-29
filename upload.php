@@ -37,13 +37,13 @@ if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    echo "Désolé votre fichier n'a pas pu être uploadé.";
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        echo "Le fichier ". basename( $_FILES["fileToUpload"]["name"]). "a bien été uploadé.";
     } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Désolé il y a eu une erreur lors de l'upload de votre fichier.";
     }
 }
 
