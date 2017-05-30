@@ -48,12 +48,12 @@ if ($uploadOk == 0) {
     }
 }
 
-$uploads = 'uploads';
-$fichier = scandir ($uploads[$sorting_order = SCANDIR_SORT_ASCENDING]);
+$uploads = './uploads';
+$fichier = scandir($uploads,1);
 
-echo "<strong>";
+echo "<pre>";
 print_r($fichier);
-echo "</strong>";
+echo "</pre>";
 ?>
 
 
