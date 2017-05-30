@@ -1,9 +1,14 @@
 <?php
+ini_set('post_max_size', '10M');
+ini_set('upload_max_filesize', '10M');
+ini_set('memory_limit', '1000M');
+ini_set('max_execution_time', '1920');
+ini_set('file_uploads', 'On');
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-
+print_r($target_file);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
