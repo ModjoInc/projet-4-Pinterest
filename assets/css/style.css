@@ -1,11 +1,96 @@
-.container-fluid {
-  width: 80%;
-  margin: auto;
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Open+Sans:600');
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+  background-color: #efd9ce;
+}
+
+header {
+   margin-bottom: 20px;
+   background-color: #25283d;
+}
+
+header h1{
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  font-family: "Amatic SC", cursive;
+  font-size: 5em;
 }
 
 h1 {
-  text-align: center;
+  color: #25283d;
+  font-size: 3em;
 }
+
+/*formulaire*/
+label {
+   cursor: pointer;
+}
+
+#fichier_upload {
+   opacity: 0;
+   position: absolute;
+   z-index: -1;
+}
+
+.browse {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+.browse input {
+  border: 1px solid black;
+}
+
+/*image loader*/
+
+/* force scrollbar */
+html {
+  overflow-y: scroll;
+}
+
+/* ---- isotope ---- */
+
+.grid {
+  background: #8f3985;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item ---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+
+.container-fluid {
+  width: 90%;
+  margin: auto;
+}
+
+/*bootstrap*/
 
 .col-md-12 {
   text-align: center;
@@ -13,13 +98,6 @@ h1 {
 }
 
 .portfolio {
-  box-shadow: 10px 10px 5px #888888;
-  padding: 5px;
-}
-
-img {
-  max-width: 300px;
-  height: auto;
 }
 
 .form-group {
@@ -29,4 +107,29 @@ img {
 .btn {
   padding: 20px;
   font-size: 1.5em;
+}
+
+.upload {
+  margin: 0 auto;
+  padding: 10px;
+  /*display: none;*/
+}
+
+.hide {
+  display: none;
+}
+
+/*REMODAL
+*/
+.remodal-bg.with-red-theme.remodal-is-opening,
+    .remodal-bg.with-red-theme.remodal-is-opened {
+      filter: none;
+    }
+
+.remodal-overlay.with-red-theme {
+  background-color: #f44336;
+}
+
+.remodal.with-red-theme {
+  background: #fff;
 }
