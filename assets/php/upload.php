@@ -53,8 +53,6 @@
   }
 
 
-public function FunctionName($value='')
-{
 
     //simple image
     require './assets/src/claviska/SimpleImage.php';
