@@ -53,6 +53,8 @@
   }
 
 
+public function FunctionName($value='')
+{
 
     //simple image
     require './assets/src/claviska/SimpleImage.php';
@@ -62,7 +64,7 @@
       $miniature_cible = $thumbnail . basename($_FILES["fichier_upload"]["name"]);
       $overlay = "./img/overlay.png";
       $anchor = "bottom";
-      $opacity = "0.7";
+      $opacity = "0. ";
       $anchor = "bottom";
     try {
       $image = new \claviska\SimpleImage();
