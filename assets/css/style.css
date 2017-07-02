@@ -8,18 +8,19 @@ body {
   background-color: #efd9ce;
 }
 
+.container-fluid {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 header {
    margin-bottom: 20px;
    background-color: #25283d;
+   padding: 20px;
 }
 
-header h1{
-  margin: 0 auto;
-  padding: 20px;
+.imgH {
   text-align: center;
-  color: #fff;
-  font-family: "Amatic SC", cursive;
-  font-size: 5em;
 }
 
 h1 {
@@ -132,4 +133,13 @@ html {
 
 .remodal.with-red-theme {
   background: #fff;
+}
+
+.limit {
+  max-width: 600px;
+}
+
+.arrow {
+  vertical-align: middle;
+  margin-top: 50px;
 }
