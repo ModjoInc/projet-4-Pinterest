@@ -107,7 +107,7 @@
    require 'assets/src/claviska/SimpleImage.php';
 
 
-     $thumbnail = "miniatures";
+     $thumbnail = "miniatures/";
      $miniature_cible = $thumbnail . basename($_FILES["fichier_upload"]["name"]);
      $overlay = "img/overlay.png";
      $anchor = "bottom";
