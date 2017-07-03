@@ -10,6 +10,7 @@ body {
 
 .container-fluid {
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -17,6 +18,15 @@ header {
    margin-bottom: 20px;
    background-color: #25283d;
    padding: 20px;
+}
+
+footer {
+   margin-top: 50px;
+   background-color: #25283d;
+   padding: 20px;
+   color: #fff;
+   text-align: center;
+   font-size: 1.5em;
 }
 
 .imgH {
@@ -58,8 +68,8 @@ html {
 /* ---- isotope ---- */
 
 .grid {
-  background: #8f3985;
-  padding: 20px;
+  background: #25283d;
+  padding: 5px;
   margin-bottom: 20px;
 }
 
@@ -74,7 +84,7 @@ html {
 
 .grid-sizer,
 .grid-item {
-  width: 33.333%;
+  width: 25%;
 }
 
 .grid-item {
@@ -86,19 +96,13 @@ html {
   max-width: 100%;
 }
 
-.container-fluid {
-  width: 90%;
-  margin: auto;
-}
+
 
 /*bootstrap*/
 
 .col-md-12 {
   text-align: center;
   margin: 20px 10px 60px 10px;
-}
-
-.portfolio {
 }
 
 .form-group {
@@ -113,12 +117,8 @@ html {
 .upload {
   margin: 0 auto;
   padding: 10px;
-  /*display: none;*/
 }
 
-.hide {
-  display: none;
-}
 
 /*REMODAL
 */
@@ -142,4 +142,12 @@ html {
 .arrow {
   vertical-align: middle;
   margin-top: 50px;
+}
+
+
+/*DIVERS*/
+.infos {
+  background-color: #afafaf;
+  opacity: 0.3;
+  color: #fff;
 }
