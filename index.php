@@ -38,13 +38,12 @@
 
             // Code PHP pour l'upload & définition des variables utilisées
   try {
-    $dossier_cible = "uploads/";
+    $dossier_cible = 'uploads/';
     if (isset($_POST['submit'])) {
       $fichier_cible = $dossier_cible . basename($_FILES["fichier_upload"]["name"]);
       $type_image = pathinfo($fichier_cible,PATHINFO_EXTENSION);
     }
     $erreurs = 1;
-
     // vérification que le fichier soit une image
     if(isset($_POST["submit"])) {
         $check = getimagesize($_FILES["fichier_upload"]["tmp_name"]);
@@ -151,12 +150,15 @@
 ?>
           </div>
         </div>
-        
+
       <div class="container-fluid">
         <div class="col-md-6 col-md-offset-3 infos">
           <?php
+          if ($e) {
             echo $erreursDisplay;
             echo $erreursDisplay1;
+          }
+
             ?>
         </div>
       </div>
