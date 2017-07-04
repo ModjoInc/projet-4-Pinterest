@@ -10,29 +10,27 @@
   </head>
 
   <body>
-    <header>
-      <div class="imgH">
-        <img src="img/logo.png" alt="logo">
-      </div>
-    </header>
+<div class="remodal-bg">
 
-  <div class="remodal-bg">
 
-    <div class="container-fluid">
-      <div class="col-md-12">
-       <!--formulaire-->
-        <form class="form-inline" action="" method="post" enctype="multipart/form-data">
-          <div class="form-group">
-            <h2>1</h2><label class="btn btn-primary" for="fichier_upload">Parcourir</label><input class="browse" type="file" name="fichier_upload" id="fichier_upload">
-          </div>
-          <div class="form-group ">
-            <img class="arrow" src="img/arrow.png" alt="next">
-          </div>
-          <div class="form-group">
-            <h2>2</h2><button type="submit" class="btn btn-primary" value="Upload Image" name="submit">Placez votre image</button>
-         </div>
-        </form>
+      <div id="slide1" style="">
+        <div class="slideInside">
+          <form class="form-inline" action="" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <h2>1</h2><label class="btn btn-primary" for="fichier_upload">Parcourir</label><input class="browse" type="file" name="fichier_upload" id="fichier_upload">
+            </div>
+            <div class="form-group ">
+              <img class="arrow" src="img/arrow.png" alt="next">
+            </div>
+            <div class="form-group">
+              <h2>2</h2><button type="submit" class="btn btn-primary" value="Upload Image" name="submit">Placez votre image</button>
+           </div>
+          </form>
+        </div>
       </div>
+
+  <div id="slide2" style="">
+      <div class="container-fluid">
         <div class="col-md-6 col-md-offset-3 infos">
 <?php
 
@@ -40,13 +38,18 @@
   try {
     $dossier_cible = 'uploads/';
     if (isset($_POST['submit'])) {
-      $fichier_cible = $dossier_cible . basename($_FILES["fichier_upload"]["name"]);
+      $fichierBrut = $_FILES["fichier_upload"]["name"];
+      $fichierNet =  str_replace(" ", "", $fichierBrut);
+      $fichier_cible = $dossier_cible . basename($fichierNet);
       $type_image = pathinfo($fichier_cible,PATHINFO_EXTENSION);
+      echo $fichierNet;
     }
     $erreurs = 1;
     // vérification que le fichier soit une image
     if(isset($_POST["submit"])) {
-        $check = getimagesize($_FILES["fichier_upload"]["tmp_name"]);
+        $fichierBrutTmp = $_FILES["fichier_upload"]["tmp_name"];
+        $fichierNetTmp = trim($fichierBrutTmp);
+        $check = getimagesize($fichierNetTmp);
         if($check !== false) {
             echo "<p>Le fichier est une image - " . $check["mime"] . " .</p>";
             $erreurs = 1;
@@ -78,29 +81,28 @@
     // vérification erreurs
     if ($erreurs == 0) {
         echo "<p>Votre fichier n'a pas pu être uploadé.</p>";
-
     // si pas d'erreurs upload du fichier
     } else {
-        if (move_uploaded_file($_FILES["fichier_upload"]["tmp_name"], $fichier_cible)) {
+        if (move_uploaded_file($fichierNetTmp, $fichier_cible)) {
             echo "<p>Le fichier <strong>". basename( $_FILES["fichier_upload"]["name"]). "</strong> a bien été uploadé.</p>";
         } else {
             echo "<p>Il y a eu une erreur lors de l'upload de votre fichier.</p>";
         }
     }
   }
+?>
 
- ?>
        </div>
 
         <div class="col-md-12">
           <h1>Portfolio</h1>
         </div>
+
       </div>
+
       <div class="container">
 
-
-    <!--  <div class="col-md-12">-->
-        <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 50 } }'>
+          <div class="grid" data-isotope='{ "itemSelector": ".grid-item", "getSortData": { "name": ".name", "category": "[data-category]" }, "masonry": { "columnWidth": 100 } }'>
 
 <?php
    //simple image
@@ -108,7 +110,7 @@
 
 
      $thumbnail = "miniatures/";
-     $miniature_cible = $thumbnail . basename($_FILES["fichier_upload"]["name"]);
+     $miniature_cible = $thumbnail . basename($fichierNet);
      $overlay = "img/overlay.png";
      $anchor = "bottom";
      $opacity = "0.7";
@@ -116,7 +118,7 @@
    try {
      $image = new \claviska\SimpleImage();
      $image->fromFile($fichier_cible);
-     $image->thumbnail(200, 200);
+     $image->thumbnail(100, 100);
      $image->border('#25283d', 10);
      $image->overlay($overlay, $anchor, $opacity);
      $image->toFile($miniature_cible);
@@ -150,33 +152,38 @@
 ?>
           </div>
         </div>
-
-      <div class="container-fluid">
-        <div class="col-md-6 col-md-offset-3 infos">
-          <?php
-          if ($e) {
-            echo $erreursDisplay;
-            echo $erreursDisplay1;
-          }
-
-            ?>
-        </div>
       </div>
-   </div>
- <footer>&copy; 2017 Pin-It</footer>
 
+
+  <div id="slide3" style="">
+    <div class="slideInside">
+      <p><?php
+      if ($e) {
+        echo $erreursDisplay;
+        echo $erreursDisplay1;
+      } ?></p>
+      <p>&copy; 2017 Pin-It</p>
+    </div>
+  </div>
+</div>
 <!--SCRIPTS-->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"><\/script>')</script>
-<script src="assets/modal/dist/remodal.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+<!-- <script src="assets/js/jquery.parallax-1.1.3.js"></script>
+<script>
+$(document).ready(function(){
+   $('#slide1').parallax("center", 0, 0.1, true);
+   $('#slide2').parallax("center", 900, 0.1, true);
+   $('#slide3').parallax("center", 2500, 0.1, true);
+ });
+ </script> -->
 <script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/modal/dist/remodal.min.js"></script>
+
 <script src="assets/js/imagesloaded.pkgd.js"></script>
 <script src="assets/js/loading.js"></script>
-<script>
-  $('[data-remodal-id=modal2]').remodal({
-  modifier: 'with-red-theme'
-  });
-</script>
+<script src="assets/modal/dist/remodal.js"></script>
+<script src="assets/modal/dist/remodal.min.js"></script>
+
+
   </body>
 </html>
